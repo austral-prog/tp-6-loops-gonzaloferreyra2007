@@ -12,7 +12,16 @@ def put(value, lst):
         put("Blue", colors) -> 1
         # colors ahora es ["Red", "Blue", "Green"]
     """
-    return "ANSWER HERE"  # Remove this line and implement
+    for i in range(len(lst)):
+        # Si encontramos un espacio vacío
+        if lst[i] == "":
+            # Modificamos la lista original directamente
+            lst[i] = value
+            # Retorno temprano: ya cumplimos la tarea
+            return i
+            
+    # Si recorrimos toda la lista y no hubo un "", devolvemos -1
+    return -1
 
 
 def remove(value, lst):
@@ -26,4 +35,14 @@ def remove(value, lst):
         remove("Red", colors) -> 2
         # colors ahora es ["", "Green", "", "Blue"]
     """
-    return "ANSWER HERE"  # Remove this line and implement
+    eliminaciones = 0
+    
+    for i in range(len(lst)):
+        # Si el elemento actual es el que queremos borrar
+        if lst[i] == value:
+            # Reemplazamos por un string vacío
+            lst[i] = ""
+            # Aumentamos nuestro contador
+            eliminaciones = eliminaciones + 1
+            
+    return eliminaciones
